@@ -1,0 +1,359 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://raw.githubusercontent.com/janakir2006/JAVA-PICS/refs/heads/main/bpass2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  /*position: sticky;*/
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+}
+
+.navbar ul li {
+  font-size: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.register-btn {
+  background-color: #e03a03;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Ticket container styling */
+#all-tickets {
+  margin-top: 100px; /* Adjust this value based on your header height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.ticket {
+  display: flex;
+  width: 750px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px dashed #000000;
+  overflow: hidden;
+}
+
+.ticket-left {
+  background-color: orangered;
+  color: black;
+  padding: 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-right: 1px dashed black;
+}
+
+.ticket-left h2 {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.ticket-left p {
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.barcode {
+  width: 80%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    90deg,
+    #fff,
+    #fff 2px,
+    #000 2px,
+    #000 4px
+  );
+  border-radius: 3px;
+  margin: 20px 0;
+}
+
+.gate-time {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.80em;
+}
+
+.gate-time div {
+  text-align: center;
+}
+
+.ticket-right {
+  padding: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.details-row div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.details-row h3 {
+  margin: 0 0 5px 0;
+  font-size: 0.85em;
+  color: #000;
+}
+
+.line {
+  border-bottom: 1.5px solid #333;
+  width: 100%;
+  height: 18px;
+}
+
+.short-line {
+  display: inline-block;
+  border-bottom: 1.5px solid #333;
+  width: 100px;
+  height: 18px;
+}
+
+.price {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: black;
+  margin-top: 10px;
+}
+
+/*body{
+  background-image: url('https://raw.githubusercontent.com/janakir2006/JAVA-PICS/refs/heads/main/bpass2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+header{
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Black with 60% opacity 
+    /*position: fixed;
+    top:0;
+    left: 0;
+    z-index:0;
+    width: 100%;
+    /*height: 100;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo img {
+  height: 50px;       /* Adjust the size here 
+  width: auto;        /* Maintain aspect ratio 
+  object-fit: contain;
+  display: block;     /* Remove extra space below image 
+  border-radius: 100%;
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:20px;
+}
+
+.navbar ul{
+    display:flex;
+    gap:30px;
+    list-style-type: none;
+}
+.navbar ul li{
+    font-size: 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color:white;
+}
+
+.register-btn{
+  background-color: #e03a03;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+}
+
+/*header position ends
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+}
+.ticket {
+    display: flex;
+    width: 750px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 3px dashed #000000;
+    overflow: hidden;
+	
+}
+
+.ticket-left {
+    background-color:orangered;
+    color: black;
+    padding: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-right: 1px dashed black;
+}
+
+.ticket-left h2 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.ticket-left p {
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+.barcode {
+    width: 80%;
+    height: 40px;
+    background: repeating-linear-gradient(
+        90deg,
+        #fff,
+        #fff 2px,
+        #000 2px,
+        #000 4px
+    );
+    border-radius: 3px;
+    margin: 20px 0;
+}
+
+.gate-time {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 0.85em;
+}
+
+.gate-time div {
+    text-align: center;
+}
+
+.ticket-right {
+    padding: 20px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.details-row div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.details-row h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.85em;
+    color: #000;
+}
+
+.line {
+    border-bottom: 1.5px solid #333;
+    width: 100%;
+    height: 14px;
+}
+
+.short-line {
+    display: inline-block;
+    border-bottom: 1.5px solid #333;
+    width: 100px;
+    height: 14px;
+}
+
+.price {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: black;
+    margin-top: 10px;
+}*/
+
+
+
+

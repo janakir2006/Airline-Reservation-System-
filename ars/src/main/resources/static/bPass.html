@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flight Ticket Confirmation</title>
+  <link rel="stylesheet" href="./bPassStyles.css" />
+  <!--<style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://raw.githubusercontent.com/janakir2006/JAVA-PICS/refs/heads/main/bpass2.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  /*position: sticky;*/
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style-type: none;
+}
+
+.navbar ul li {
+  font-size: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.register-btn {
+  background-color: #e03a03;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+/* Ticket container styling */
+#all-tickets {
+  margin-top: 100px; /* Adjust this value based on your header height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+.ticket {
+  display: flex;
+  width: 750px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px dashed #000000;
+  overflow: hidden;
+}
+
+.ticket-left {
+  background-color: orangered;
+  color: black;
+  padding: 20px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-right: 1px dashed black;
+}
+
+.ticket-left h2 {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.ticket-left p {
+  font-size: 0.9em;
+  margin: 10px 0;
+}
+
+.barcode {
+  width: 80%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    90deg,
+    #fff,
+    #fff 2px,
+    #000 2px,
+    #000 4px
+  );
+  border-radius: 3px;
+  margin: 20px 0;
+}
+
+.gate-time {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.85em;
+}
+
+.gate-time div {
+  text-align: center;
+}
+
+.ticket-right {
+  padding: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.details-row div {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.details-row h3 {
+  margin: 0 0 5px 0;
+  font-size: 0.85em;
+  color: #000;
+}
+
+.line {
+  border-bottom: 1.5px solid #333;
+  width: 100%;
+  height: 14px;
+}
+
+.short-line {
+  display: inline-block;
+  border-bottom: 1.5px solid #333;
+  width: 100px;
+  height: 14px;
+}
+
+.price {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: black;
+  margin-top: 10px;
+}
+  </style>-->
+</head>
+<body>
+    <!--Header portion starts-->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://raw.githubusercontent.com/janakir2006/JAVA-PICS/refs/heads/main/logo.webp" alt="logo pic">
+                </div>
+                <ul>
+					<li><a href="http://localhost:8080/home.html">Home</a></li>
+					<li><a href="http://localhost:8080/view.html">View </a></li>
+					<li><a href="http://localhost:8080/search.html">Search</a></li>
+					<li><a href="http://localhost:8080/book.html">Book</a></li>
+					<li><a href="http://localhost:8080/bPass.html">My Trips</a></li>
+					<li><a href="http://localhost:8080/register.html" class="register-btn">Register</a></li>
+
+                </ul>    
+            </nav>
+        </div>
+    </header>
+    <!--Header portion ends-->
+
+	<div id="all-tickets" >
+	</div>
+<!--
+  <div class="ticket">
+    <div class="ticket-left">
+      <h2>Air Company</h2><p>BOARDING PASS</p>
+      <div class="barcode"></div>
+      <div class="gate-time">
+        <div><p><strong>GATE</strong></p><div class="line">K19</div></div>
+      </div>
+    </div>
+    <div class="ticket-right">
+      <div class="details-row">
+        <div><h3>Username:</h3><div class="line"></div>
+        </div>
+        <div>
+          <h3>Passenger Name:</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="details-row">
+        <div>
+          <h3>Flight Number:</h3>
+          <div class="line"></div>
+        </div>
+        <div>
+          <h3>Class:</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="details-row">
+        <div>
+          <h3>Departure Date:</h3>
+          <div class="line"></div>
+        </div>
+        <div>
+          <h3>Time:</h3>
+          <div class="line"></div>
+        </div>
+        <div>
+          <h3>From:</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="details-row">
+        <div>
+          <h3>To:</h3>
+          <div class="line"></div>
+        </div>
+        <div>
+          <h3>Meal Preference:</h3>
+          <div class="line"></div>
+        </div>
+        <div>
+          <h3>Payment Mode:</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="price">
+        Price: <span class="line short-line"></span>
+      </div>
+    </div>
+  </div>
+  -->
+  
+  
+  <script>
+    // Prompt for the username
+    const username = prompt("Enter your username");
+
+    // Fetch ticket details using the username
+    fetch(`http://localhost:8080/myTickets?username=${encodeURIComponent(username)}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Ticket not found or server error");
+        }
+        return response.json(); // Convert response to JSON
+      })
+      .then(data => {
+		const allTickets = document.getElementById('all-tickets');
+
+		data.forEach(ticket => {
+		  const tkt = document.createElement('div');
+		  tkt.className = 'ticket';
+		  
+		  tkt.innerHTML = `
+		  <div class="ticket-left">
+		    <h2>Air Company</h2><p>BOARDING PASS</p>
+		    <div class="barcode"></div>
+		    <div class="gate-time">
+		      <div><p><strong>GATE</strong></p><div class="line">K19</div></div>
+		    </div>
+		  </div>
+		  <div class="ticket-right">
+		    <div class="details-row">
+		      <div><h3>Username:</h3><div class="line">${ticket.username}</div>
+		      </div>
+		      <div>
+		        <h3>Passenger Name:</h3>
+		        <div class="line">${ticket.customerName}</div>
+		      </div>
+		    </div>
+		    <div class="details-row">
+		      <div>
+		        <h3>Flight Number:</h3>
+		        <div class="line">${ticket.flightNumber}</div>
+		      </div>
+		      <div>
+		        <h3>Class:</h3>
+		        <div class="line">${ticket.travelClass}</div>
+		      </div>
+		    </div>
+		    <div class="details-row">
+		      <div>
+		        <h3>Departure Date:</h3>
+		        <div class="line">${formatDate(ticket.flightTime)}</div>
+		      </div>
+		      <div>
+		        <h3>Time:</h3>
+		        <div class="line">${formatTime(ticket.flightTime)}</div>
+		      </div>
+		      <div>
+		        <h3>From:</h3>
+		        <div class="line">${ticket.from}</div>
+		      </div>
+		    </div>
+		    <div class="details-row">
+		      <div>
+		        <h3>To:</h3>
+		        <div class="line">${ticket.to}</div>
+		      </div>
+		      <div>
+		        <h3>Meal Preference:</h3>
+		        <div class="line">${ticket.mealPreferences.mainMeal} - ${ticket.mealPreferences.refreshment}</div>
+		      </div>
+		      <div>
+		        <h3>Payment Mode:</h3>
+		        <div class="line">${ticket.paymentMode}</div>
+		      </div>
+		    </div>
+		    <div class="price">
+		      Price: <span class="line short-line">${ticket.price}</span>
+		    </div>
+		  </div>
+		  `;		  
+		  
+		  allTickets.appendChild(tkt);
+		});
+        
+      })
+      .catch(error => {
+        console.error("Error fetching ticket:", error);
+        alert("Could not load ticket details. Please try again.");
+      });
+
+	function formatDate(input) {
+	  const date = new Date(input);
+
+	  const day = String(date.getDate()).padStart(2, '0');
+	  const month = date.toLocaleString('en-US', { month: 'short' }); // e.g., "May"
+	  const year = date.getFullYear();
+
+	  return `${day}-${month}-${year}`;
+	}		
+
+	function formatTime(input) {
+	  const date = new Date(input);
+
+	  const hours = String(date.getHours()).padStart(2, '0');
+	  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+	  return `${hours}:${minutes}`;
+	}		
+  </script>
+
+</body>
+</html>

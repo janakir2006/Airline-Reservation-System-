@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flight Booking Form</title>
+  <link rel="stylesheet" href="./bookstyles.css">
+</head>
+<body>
+    <!--heading portion starts-->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://raw.githubusercontent.com/janakir2006/JAVA-PICS/refs/heads/main/logo.webp" alt="logo pic">
+                </div>
+                <ul>
+					<li><a href="http://localhost:8080/home.html">Home</a></li>
+					<li><a href="http://localhost:8080/view.html">View </a></li>
+					<li><a href="http://localhost:8080/search.html">Search</a></li>
+					<li><a href="http://localhost:8080/book.html">Book</a></li>
+					<li><a href="http://localhost:8080/bPass.html">My Trips</a></li>
+					<li><a href="http://localhost:8080/register.html" class="register-btn">Register</a></li>
+
+                </ul>    
+            </nav>
+        </div>
+    </header>
+    <!--Header portion ends-->
+    
+    <!--booking form starts-->
+  <div class="form-container">
+    <h2>Book Your Flight</h2>
+    <form action="#" method="post">
+      <label for="flightNumber">Flight Number:</label>
+      <input type="text" id="flightNumber" name="flightNumber" required>
+
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="class">Select Class:</label>
+      <select id="class" name="class" required>
+        <option value="">-- Select Class --</option>
+        <option value="Economy">Economy</option>
+        <option value="Business">Business</option>
+        <option value="First">First</option>
+        <option value="Premium Economy">Premium Economy</option>
+      </select>
+
+      <label for="meal">Main Meal (Veg/Non-Veg):</label>
+      <select id="meal" name="meal" required>
+        <option value="">-- Select Meal --</option>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+      </select>
+
+      <label for="refreshment">Refreshment:</label>
+      <select id="refreshment" name="refreshment" required>
+        <option value="">-- Select Refreshment --</option>
+        <option value="Tea">Tea</option>
+        <option value="Coffee">Coffee</option>
+        <option value="Milk">Milk</option>
+        <option value="Wine">Wine</option>
+      </select>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" name="payment" required>
+        <option value="">-- Select Payment Method --</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="UPI">UPI</option>
+      </select>
+
+      <button type="submit">Book Flight</button>
+    </form>
+  </div>
+  <!--booking form ends-->
+  
+  <script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent page refresh
+
+      // Gather form data
+      const bookingData = {
+        flightNumber: document.getElementById("flightNumber").value,
+        username: document.getElementById("username").value,
+        travelClass: document.getElementById("class").value,
+        mealPreferences: {
+			mainMeal:document.getElementById("meal").value,
+			refreshment:document.getElementById("refreshment").value
+		},
+        paymentMode: document.getElementById("payment").value
+      };
+
+      // Send data to backend
+      fetch("http://localhost:8080/bookFlight", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookingData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to book flight");
+        }
+        return response.text(); // Or .json() if backend returns JSON
+      })
+      .then(data => {
+        alert("Flight booked successfully!");
+        console.log("Response:", data);
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        alert("Error booking flight or Username not found");
+      });
+    });
+  </script>
+	
+
+</body>
+</html>
